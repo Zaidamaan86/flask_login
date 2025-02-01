@@ -1,14 +1,23 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from config import Config
+
+
+db = SQLAlchemy()
 
 app = Flask(__name__)
+app.config.from_object(Config)
 
+db.init_app(app)
 
-from app.routes.landing_page import landing_bp
+with app.app_context():
+    db.create_all()
+    print("Database initialized.")
+
 # Import routes after initializing the app
+from app.routes.landing_page import landing_bp
 from app.routes.signup import signup_bp
-
 from app.routes.login import login_bp
-
 from app.routes.delete import delete_bp
 
 # Register blueprints
