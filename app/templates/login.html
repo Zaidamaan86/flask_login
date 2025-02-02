@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title_Styleslink %}
+  <title>Login Page</title>
+  <link rel="stylesheet" href="../static/login_styles.css">
+{% endblock title_Styleslink %}
+
+
+{% block body_content %}
+  <div class="login-container">
+    <h2>Login</h2>
+    
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+
+      <div class="show-password">
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+      </div>
+    </form>
+
+    <form action="{{ url_for('signup.signup') }}" method="GET">
+      <button type="submit" id="signup-button">Signup</button>
+    </form>
+  </div>
+
+
+  <script>
+    function togglePassword() {
+      var passwordField = document.querySelector('input[name="password"]');
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+      } else {
+        passwordField.type = "password";
+      }
+    }
+  </script>
+{% endblock body_content %}

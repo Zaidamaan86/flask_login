@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flask Login Page</title>
-<link rel="stylesheet" href="../static/styles.css">
+{% extends 'base.html' %}
 
-</head>
-<body>
+
+{% block title_Styleslink %}
+  <title>Flask Login Page</title>
+{% endblock title_Styleslink %}
+
+
+{% block body_content %}
   <h1>Welcome to Flask Login Page</h1>
   <div class="button-container">
     <button onclick="location.href='/signup'">Sign Up</button>
     <button onclick="location.href='/login'">Login</button>
   </div>
-</body>
-</html>
+{% endblock body_content %}
+

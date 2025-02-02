@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title_Styleslink %}
+  <title>{{ full_name }} Logged In</title>
+  <link rel="stylesheet" href="../static/successfully_loggedin_styles.css">
+{% endblock title_Styleslink %}
+
+
+{% block body_content %}
+  <div class="container">
+    <div class="message">Successfully Logged In</div>
+    <div class="username">{{ username }}</div>
+    <form action="{{ url_for('delete.delete') }}" method="POST">
+        <input type="hidden" name="username" value="{{ username }}">
+        <button type="submit" class="delete-button">Delete Account</button>
+    </form>
+  </div>
+{% endblock body_content %}
+
+
+
+
